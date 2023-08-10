@@ -13,6 +13,9 @@ struct SignUp: View {
     @State private var emailID: String = ""
     @State private var fullName: String = ""
     @State private var password: String = ""
+    /// Optional, Present If you want to ask OTP for SIGn UP
+    @State private var askOTP: Bool = false
+    @State private var otpText: String = ""
 
     var body: some View {
         VStack(alignment: .leading, spacing: 15, content: {
@@ -30,7 +33,7 @@ struct SignUp: View {
                 .fontWeight(.heavy)
                 .padding(.top, 25)
             
-            Text("Pleas, Sign up to continue")
+            Text("Please, Sign up to continue")
                 .font(.callout)
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
@@ -46,15 +49,15 @@ struct SignUp: View {
                 CustomTF(sfIcon: "lock", hint: "Password", isPassword: true, value: $password)
                     .padding(.top, 5)
                 
-                .hSpacing(.trailing)
-                /// Disabling untill the Data is entered
-                .disableWidthOpacity(emailID.isEmpty || password.isEmpty || fullName.isEmpty)
-                
                 /// SignUp Button
                 GradientButton(title: "Continue", icon: "arrow.right") {
+                    ///  YOUR CODE
+                    askOTP.toggle()
                     
                 }
                 .hSpacing(.trailing)
+                /// Disabling untill the Data is entered
+                .disableWithOpacity(emailID.isEmpty || password.isEmpty || fullName.isEmpty)
             }
             .padding(.top, 20)
             
@@ -64,7 +67,7 @@ struct SignUp: View {
                 Text("Already have an account?")
                     .foregroundStyle(.gray)
                 
-                Button("Sign Up") {
+                Button("Login") {
                     showSignup = false
                 }
                 .fontWeight(.bold)
@@ -76,6 +79,18 @@ struct SignUp: View {
         .padding(.vertical, 15)
         .padding(.horizontal, 25)
         .toolbar(.hidden, for: .navigationBar)
+        /// OTP Prompt
+        .sheet(isPresented: $askOTP, content: {
+            if #available(iOS 16.4, *) {
+                ///  Since I wanted a Custom Sheet Radius
+                OTPView(otpText: $otpText)
+                    .presentationDetents([.height(350)])
+                    .presentationCornerRadius(30)
+            } else {
+                OTPView(otpText: $otpText)
+                    .presentationDetents([.height(350)])
+            }
+        })
     }
 }
 

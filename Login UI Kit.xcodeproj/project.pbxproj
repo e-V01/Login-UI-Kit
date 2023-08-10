@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E612FC12A82404300A911EB /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E612FC02A82404200A911EB /* PasswordResetView.swift */; };
+		9E612FC32A8243A700A911EB /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E612FC22A8243A700A911EB /* OTPView.swift */; };
+		9E612FC52A8245BB00A911EB /* OTPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E612FC42A8245BB00A911EB /* OTPVerificationView.swift */; };
 		9EDBF9D12A7F82D600AB9E86 /* Login_UI_KitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDBF9D02A7F82D600AB9E86 /* Login_UI_KitApp.swift */; };
 		9EDBF9D32A7F82D600AB9E86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDBF9D22A7F82D600AB9E86 /* ContentView.swift */; };
 		9EDBF9D52A7F82D600AB9E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDBF9D42A7F82D600AB9E86 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E612FC02A82404200A911EB /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		9E612FC22A8243A700A911EB /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		9E612FC42A8245BB00A911EB /* OTPVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationView.swift; sourceTree = "<group>"; };
 		9EDBF9CD2A7F82D600AB9E86 /* Login UI Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Login UI Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDBF9D02A7F82D600AB9E86 /* Login_UI_KitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_UI_KitApp.swift; sourceTree = "<group>"; };
 		9EDBF9D22A7F82D600AB9E86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +95,9 @@
 				9EDBF9E62A7FA29E00AB9E86 /* GradientButton.swift */,
 				9EDBF9E82A7FADF500AB9E86 /* SignUp.swift */,
 				9EDBF9EA2A7FB1C200AB9E86 /* ForgotPassword.swift */,
+				9E612FC02A82404200A911EB /* PasswordResetView.swift */,
+				9E612FC22A8243A700A911EB /* OTPView.swift */,
+				9E612FC42A8245BB00A911EB /* OTPVerificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,11 +181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EDBF9E92A7FADF500AB9E86 /* SignUp.swift in Sources */,
+				9E612FC52A8245BB00A911EB /* OTPVerificationView.swift in Sources */,
 				9EDBF9E02A7F847100AB9E86 /* Login.swift in Sources */,
 				9EDBF9E72A7FA29E00AB9E86 /* GradientButton.swift in Sources */,
 				9EDBF9EB2A7FB1C200AB9E86 /* ForgotPassword.swift in Sources */,
 				9EDBF9D32A7F82D600AB9E86 /* ContentView.swift in Sources */,
 				9EDBF9E32A7F85AE00AB9E86 /* View+Extensions.swift in Sources */,
+				9E612FC32A8243A700A911EB /* OTPView.swift in Sources */,
+				9E612FC12A82404300A911EB /* PasswordResetView.swift in Sources */,
 				9EDBF9E52A7F87F500AB9E86 /* CustomTF.swift in Sources */,
 				9EDBF9D12A7F82D600AB9E86 /* Login_UI_KitApp.swift in Sources */,
 			);

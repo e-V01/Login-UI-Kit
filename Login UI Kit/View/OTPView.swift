@@ -1,16 +1,14 @@
 //
-//  ForgotPassword.swift
+//  OTPView.swift
 //  Login UI Kit
 //
-//  Created by Y K on 06.08.2023.
+//  Created by Y K on 08.08.2023.
 //
 
 import SwiftUI
 
-struct ForgotPassword: View {
-    @Binding var showResetView: Bool
-    // View properties
-    @State private var emailID: String = ""
+struct OTPView: View {
+    @Binding var otpText: String
     /// Environment properties
     @Environment(\.dismiss) private var dismiss
     var body: some View {
@@ -23,40 +21,36 @@ struct ForgotPassword: View {
                     .font(.title)
                     .foregroundStyle(.gray)
             })
-            .padding(.top, 10)
-            Text("Forgot Password")
+            .padding(.top, 15)
+            Text("Enter OTP")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .padding(.top, 5)
             
-            Text("Please enter your Email ID so that we can send the reset link.")
+            Text("A 6 digit code was sent to your email")
                 .font(.caption)
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
                 .padding(.top, -5)
             
             VStack(spacing: 25) {
-                /// Custom Text Field
-                CustomTF(sfIcon: "at", hint: "Email ID", value: $emailID)
+                /// Custom OTP Text Field
+                OTPVerificationView(otpText: $otpText)
                 
-                    .padding(.top, 5)
+                /// Disabling untill the Data is entered
+               
                 
                 /// SignUp Button
                 GradientButton(title: "Send Link", icon: "arrow.right") {
                     /// Your code
                     /// after the link sent
-                    Task {
-                        dismiss()
-                        try? await Task.sleep(for: .seconds(0))
-                        /// Showing the reset View
-                        showResetView = true
-                    }
                 }
                 .hSpacing(.trailing)
-                /// Disabling untill the Data is entered
-                .disableWithOpacity(emailID.isEmpty)
+                .disableWithOpacity(otpText.isEmpty)
             }
             .padding(.top, 20)
+            
+            Spacer(minLength: 0)
         
         })
         .padding(.vertical, 15)
@@ -68,7 +62,7 @@ struct ForgotPassword: View {
 }
 
 
-struct ForgotPassword_Previews: PreviewProvider {
+struct OTPView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }

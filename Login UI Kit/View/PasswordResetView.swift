@@ -1,16 +1,16 @@
 //
-//  ForgotPassword.swift
+//  PasswordResetView.swift
 //  Login UI Kit
 //
-//  Created by Y K on 06.08.2023.
+//  Created by Y K on 08.08.2023.
 //
 
 import SwiftUI
 
-struct ForgotPassword: View {
-    @Binding var showResetView: Bool
+struct PasswordResetView: View {
     // View properties
-    @State private var emailID: String = ""
+    @State private var password: String = ""
+    @State private var confirmPassword: String = ""
     /// Environment properties
     @Environment(\.dismiss) private var dismiss
     var body: some View {
@@ -19,42 +19,36 @@ struct ForgotPassword: View {
             Button(action: {
                 dismiss()
             }, label: {
-                Image(systemName: "arrow.left")
+                Image(systemName: "xmark")
                     .font(.title)
                     .foregroundStyle(.gray)
             })
             .padding(.top, 10)
-            Text("Forgot Password")
+            
+            Text("Reset Password")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .padding(.top, 5)
             
-            Text("Please enter your Email ID so that we can send the reset link.")
-                .font(.caption)
-                .fontWeight(.semibold)
-                .foregroundColor(.gray)
-                .padding(.top, -5)
             
             VStack(spacing: 25) {
                 /// Custom Text Field
-                CustomTF(sfIcon: "at", hint: "Email ID", value: $emailID)
+                CustomTF(sfIcon: "lock", hint: "Password", value: $password)
                 
+                CustomTF(sfIcon: "lock", hint: "Confirm Password", value: $confirmPassword)
+
                     .padding(.top, 5)
+                
                 
                 /// SignUp Button
                 GradientButton(title: "Send Link", icon: "arrow.right") {
                     /// Your code
-                    /// after the link sent
-                    Task {
-                        dismiss()
-                        try? await Task.sleep(for: .seconds(0))
-                        /// Showing the reset View
-                        showResetView = true
-                    }
+                    /// reset password
                 }
                 .hSpacing(.trailing)
                 /// Disabling untill the Data is entered
-                .disableWithOpacity(emailID.isEmpty)
+                .disableWithOpacity(password.isEmpty || confirmPassword.isEmpty)
+
             }
             .padding(.top, 20)
         
@@ -68,7 +62,7 @@ struct ForgotPassword: View {
 }
 
 
-struct ForgotPassword_Previews: PreviewProvider {
+struct PasswordResetView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }

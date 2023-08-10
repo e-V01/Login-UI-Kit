@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     /// View Properties
     @State private var showSignup: Bool = false
+    /// Keyboard Status
+    @State private var isKeyboardShowing: Bool = false
     var body: some View {
         NavigationStack {
             Login(showSignup: $showSignup)

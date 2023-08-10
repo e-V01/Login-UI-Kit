@@ -24,7 +24,7 @@ extension View {
     }
     /// Disable width Opacity
     @ViewBuilder
-    func disableWidthOpacity(_ condition: Bool) -> some View {
+    func disableWithOpacity(_ condition: Bool) -> some View {
         self
             .disabled(condition)
             .opacity(condition ? 0.5 : 1)
